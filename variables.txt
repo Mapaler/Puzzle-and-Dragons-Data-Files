@@ -1,7 +1,7 @@
 # path to vmware-mount.exe
 E:\Program Files (x86)\VMware\VMware Virtual Disk Development Kit\bin\vmware-mount.exe
 # path to virtual disk:
-C:\ProgramFree\Nox\bin\BignoxVMS\Nox_1\Nox_1-disk2.vmdk
+C:\ProgramFree\Nox\bin\BignoxVMS\Nox_6\Nox_6-disk2.vmdk
 # mounts volume N of a virtual disk:(The default of Nox Android Emulator is 3)
 3
 # driveletter to mount:
