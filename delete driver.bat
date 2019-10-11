@@ -1,4 +1,5 @@
 @echo off
+if not exist variables.txt copy variables_default.txt variables.txt
 :0
 for /f "skip=1 delims=" %%a in (variables.txt) do (
 set mountpath=%%~a
