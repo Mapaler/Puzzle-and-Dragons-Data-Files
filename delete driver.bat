@@ -25,3 +25,4 @@ echo 正在卸载虚拟分区/Deleting Virtual Disk mapping
 title 正在卸载虚拟分区/Deleting Virtual Disk mapping
 "%mountpath%" /d %driveletter% /f
 echo 虚拟分区卸载完成/Virtual Disk mapping delete complete
+pause

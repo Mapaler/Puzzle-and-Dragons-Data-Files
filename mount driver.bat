@@ -25,3 +25,4 @@ echo 正在挂载虚拟分区/Mounting Virtual Disk
 title 正在挂载虚拟分区/Mounting Virtual Disk
 "%mountpath%" %driveletter% "%vmdkpath%" /v:%partitionN%
 echo 虚拟分区挂载完成/Virtual Disk Mount complete
+pause
