@@ -1,10 +1,20 @@
 # 智龙迷城日服 Data 数据 / The Data of Puzzle & Dragons Japanese Version
 
 ## 项目介绍
-安卓版智龙迷城`/data/data/jp.gungho.pad/files/mon2`下的数据。缺少一些第三方合作活动的历史文件。
+安卓版智龙迷城`/data/data/jp.gungho.pad/files/mon2`下的数据。(缺少一些第三方合作活动的历史文件。)  
+以及英文版和韩文版的cards数据。
 
 ## 最快速的数据提取方法
-测试了很多安卓模拟器，目前能够运行日版智龙迷城的，只有[夜神(Nox)安卓模拟器](https://www.bignox.com/)的Android5.1.1。
+经测试，可运行日版智龙迷城的安卓模拟器，有如下软件。  
+Tested Android simulator which can run the P&D Japanese version, there are the following software.
+
+| 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 游戏版本<br>Game Version |
+| --- | --- | --- | --- |
+|[夜神模拟器](https://www.yeshen.com/)<br>[NoxPlayer](https://www.bignox.com/)| 6.6.0.5 | 5.1.1 | 18.2.1 |
+|[逍遥安卓](http://www.xyaz.cn/)<br>[MEmu Play](https://www.memuplay.com)| 7.1.3 | 5.1.1 | 18.2.1 |
+
+以夜神模拟器为例  
+Take the Nox as example.
 1. 更新游戏数据
 	1. 安装夜神模拟器，并在夜神多开器（文件名`MultiPlayerManager.exe`）内添加安卓5.1.1系统。
 	1. 打开系统后，安装谷歌三件套，然后在设置内关闭模拟器的root。
@@ -25,6 +35,7 @@
 	1. 运行`delete driver.bat`，卸载虚拟磁盘。
 	1. 提交更新的数据。
 ### 备用提取方法
-1. 可root手机模拟器在没有root的情况下进入游戏更新数据，启用root后使用ES文件管理器复制数据到电脑共享文件夹。
-1. 夜神(Nox)安卓模拟器在没有root的情况下进入游戏更新数据，启用root后使用FolderSync同步数据到共享数据文件夹。
-1. DiskGenius(PartitionGuru)**专业版**读取夜神安卓模拟器虚拟磁盘文件(vmdk)并提取。
+1. 可 root 手机使用 Magis Hide 直接进入游戏更新数据，使用 [**MiXplorer**](https://mixplorer.com/) 文件管理器，编辑 FTP 服务器，修改默认路径为`/data/data/`，并开启服务器。电脑上使用 **Beyond Compare** 文件夹同步功能，从 FTP 同步数据到电脑文件夹。（记得修改自定义选项为有差异的就从手机覆盖本地）
+1. 可 root 手机模拟器在没有 root 的情况下进入游戏更新数据，启用 root 后使用 **ES文件管理器** 复制数据到电脑共享文件夹。
+1. 夜神(Nox)安卓模拟器在没有 root 的情况下进入游戏更新数据，启用 root 后使用 **FolderSync** 同步数据到共享数据文件夹。
+1. **DiskGenius(PartitionGuru)专业版** 读取夜神安卓模拟器虚拟磁盘文件(vmdk)并提取。
