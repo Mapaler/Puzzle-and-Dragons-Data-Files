@@ -29,6 +29,6 @@ goto :5
 echo 正在复制文件/Coping Files
 title 正在复制文件/Coping Files
 "%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.pad\files\mon2 /to=.\
-"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padEN\files\mon2\cards_*.bc /to=.\cards_EN
-"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padKO\files\mon2\cards_*.bc /to=.\cards_KO
+"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padEN\files\mon2\cards_*.bc %driveletter%\data\jp.gungho.padEN\files\mon2\padv*.wav /to=.\cards_EN
+"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padKO\files\mon2\cards_*.bc %driveletter%\data\jp.gungho.padKO\files\mon2\padv*.wav /to=.\cards_KO
 echo 文件复制完成/Files copy complete
