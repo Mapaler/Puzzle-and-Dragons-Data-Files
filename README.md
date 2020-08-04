@@ -10,14 +10,14 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 
 | 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 游戏版本<br>Game Version |
 | --- | --- | --- | --- |
-|[夜神模拟器](https://www.yeshen.com/)<br>[NoxPlayer](https://www.bignox.com/)| 6.6.0.5 | 5.1.1 | 18.2.1 |
+|[夜神模拟器](https://www.yeshen.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.0.3 | 7.1.2 | 18.4.3 |
 |[逍遥安卓](http://www.xyaz.cn/)<br>[MEmu Play](https://www.memuplay.com)| 7.1.3 | 5.1.1 | 18.2.1 |
 
 以夜神模拟器为例  
 Take the Nox as example.
 1. 更新游戏数据
-	1. 安装夜神模拟器，并在夜神多开器（文件名`MultiPlayerManager.exe`）内添加安卓5.1.1系统。
-	1. 打开系统后，安装谷歌三件套，然后在设置内关闭模拟器的root。
+	1. 安装国际版夜神模拟器（中国版需要额外安装谷歌三件套），并在夜神多开器（文件名`MultiPlayerManager.exe`）内添加安卓7系统。
+	1. 在设置内关闭模拟器的root。
 	1. 在模拟器里安装[智龙迷城](https://play.google.com/store/apps/details?id=jp.gungho.pad)。
 	1. 运行智龙迷城，并下载最新游戏数据。
 	1. 关闭模拟器。
