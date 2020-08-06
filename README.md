@@ -11,7 +11,7 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 | 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 游戏版本<br>Game Version |
 | --- | --- | --- | --- |
 |[夜神模拟器](https://www.yeshen.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.0.3 | 7.1.2 | 18.4.3 |
-|[逍遥安卓](http://www.xyaz.cn/)<br>[MEmu Play](https://www.memuplay.com)| 7.1.3 | 5.1.1 | 18.2.1 |
+|[逍遥安卓](http://www.xyaz.cn/)<br>[MEmu Play](https://www.memuplay.com)| 7.2.2 | 5.1.1 | 18.4.3 |
 
 以夜神模拟器为例  
 Take the Nox as example.
