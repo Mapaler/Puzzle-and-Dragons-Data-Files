@@ -10,6 +10,7 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 
 | 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 日服版本<br>Japanese Server Version |
 | --- | --- | --- | --- |
+|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.12.102 | Pie 64bit | 20.7 |
 |[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.11.50 | Nougat 64bit | 20.6.2 |
 |[夜神模拟器](https://tw.bignox.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.2.1 | 7.1.2 64bit | 19.8.1 |
 
@@ -32,7 +33,7 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 	1. 复制`variables_default.txt`并改名为`variables.txt`，然后根据自身情况，修改`variables.txt`内的“# driveletter to mount:”和“# path to FastCopy:”路径。
 	1. 运行`copy files.bat`，将数据复制到当前目录。
 	1. 回到 **Ext2 Volume Manager**，在虚拟磁盘上右键菜单选择“更改装配点盘符”或按`F10`快捷键，删除分配的盘符。
-	1. 运行 `diskmgmt.msc` 打开系统磁盘管理，在虚拟磁盘上点击右键，选择“分离VHD”。
+	1. 运行 `diskmgmt.msc` 打开系统磁盘管理，在虚拟磁盘上点击右键，选择“分离VHD”。如果一直卡着不动，**Ext2 Volume Manager**，在虚拟磁盘上右键菜单选择“保存系统缓冲”或按`F11`快捷键。
 	1. 提交更新的数据。
 </details>
 
