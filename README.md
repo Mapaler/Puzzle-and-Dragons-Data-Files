@@ -8,11 +8,10 @@
 经测试，可运行日版智龙迷城的安卓模拟器，有如下软件。  
 Tested Android simulator which can run the P&D Japanese version, there are the following software.
 
-| 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 日服版本<br>Japanese Server Version |
-| --- | --- | --- | --- |
-|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.12.102 | Pie 64bit | 20.7 |
-|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.11.50 | Nougat 64bit | 20.6.2 |
-|[夜神模拟器](https://tw.bignox.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.2.1 | 7.1.2 64bit | 19.8.1 |
+| 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 日服版本<br>Japanese Server Version | 测试日期<br>Test Data |
+| --- | --- | --- | --- | --- |
+|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.22.130 | Android 11 64bit | 23.1.3 | 2026-04-11 |
+|[夜神模拟器](https://tw.bignox.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.2.1 | 7.1.2 64bit | 19.8.1 | Very Long Times Ago |
 
 <details>
 <summary>蓝叠模拟器 | BlueStacks</summary>
