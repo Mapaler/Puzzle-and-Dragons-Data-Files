@@ -10,7 +10,9 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 
 | 名称<br>Name | 软件版本<br>Software Version | 安卓版本<br>Android Version | 日服版本<br>Japanese Server Version | 测试日期<br>Test Data |
 | --- | --- | --- | --- | --- |
-|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.22.130 | Android 11 64bit | 23.1.3 | 2026-04-11 |
+|[蓝叠模拟器](https://www.bluestacks.com/tw/)<br>[BlueStacks](https://www.bluestacks.com/)| 5.22.130 | 11 64bit | 23.3.1 | 2026-06-11 |
+|[逍遥模拟器](https://www.xyaz.cn/)<br>[MEMU Play](https://www.memuplay.com)| 9.5.3 | 9.0/12.0 64bit | 23.3.1 | 2026-06-11 |
+|[MuMu模拟器](https://mumu.163.com/)<br>[MuMu Player](https://www.mumuplayer.com)| 5.31.0 | 12 64bit | 23.3.1 | 2026-06-11 |
 |[夜神模拟器](https://tw.bignox.com/)<br>[NoxPlayer](https://www.bignox.com/)| 7.0.2.1 | 7.1.2 64bit | 19.8.1 | Very Long Times Ago |
 
 <details>
@@ -34,6 +36,48 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 	1. 回到 **Ext2 Volume Manager**，在虚拟磁盘上右键菜单选择“更改装配点盘符”或按`F10`快捷键，删除分配的盘符。
 	1. 运行 `diskmgmt.msc` 打开系统磁盘管理，在虚拟磁盘上点击右键，选择“分离VHD”。如果一直卡着不动，**Ext2 Volume Manager**，在虚拟磁盘上右键菜单选择“保存系统缓冲”或按`F11`快捷键。
 	1. 提交更新的数据。
+</details>
+
+<details>
+<summary>逍遥模拟器 | MEmu Play</summary>
+
+1. 更新游戏数据
+	1. 安装国际版逍遥模拟器（中国版需要额外安装谷歌三件套），并在逍遥多开器（文件名`MEmuConsole.exe`）内添加安卓9或12系统。
+	1. 在设置内关闭模拟器的root。
+	1. 在模拟器里安装[智龙迷城](https://play.google.com/store/apps/details?id=jp.gungho.pad)。
+	1. 运行智龙迷城，并下载最新游戏数据。
+	1. 关闭模拟器。
+1. 安装虚拟磁盘挂载工具
+	1. 安装[VMware Virtual Disk Development Kit 5.1](https://my.vmware.com/group/vmware/details?downloadGroup=VSP510-VDDK-514&productId=285)（文件名：`VMware-vix-disklib-5.1.4-2248791.i386.exe`），需要使用其中的`vmware-mount.exe`来挂载虚拟磁盘。5.1以后的版本都没有了这个程序。  
+	其他下载镜像：https://olympic.instructure.com/courses/1408048/files/76249050
+		* 也可以安装 VMware workstation 后手动挂载。
+		* 还可以手动使用免费的[OSFMount](https://www.osforensics.com/tools/mount-disk-images.html)进行挂载。
+	1. 安装[Ext2Fsd](https://github.com/matt-wu/Ext3Fsd/releases)，用于在Windows下读取EXT4文件格式磁盘，不然挂载的分区无法显示内容。
+	1. 下载[FastCopy](https://github.com/Mapaler/FastCopy-M)，用于快速复制文件，以及解决Windows复制一些文件会出现`0x800700FE`错误的问题。
+1. 正式挂载与复制数据
+	1. 复制`variables_default.txt`并改名为`variables.txt`，然后根据自身情况，修改`variables.txt`内的程序路径。
+	1. 运行`mount driver.bat`，自动挂载虚拟磁盘。
+	1. 运行`copy files.bat`，将数据复制到当前目录。
+	1. 运行`delete driver.bat`，卸载虚拟磁盘。
+	1. 提交更新的数据。
+</details>
+
+
+<details>
+<summary>MuMu模拟器 | MuMu Player</summary>
+
+1. 更新游戏数据
+	1. 安装MuMu模拟器。
+	1. 在设置内关闭模拟器的root。
+	1. 在模拟器里安装[智龙迷城](https://play.google.com/store/apps/details?id=jp.gungho.pad)。
+	1. 运行智龙迷城，并下载最新游戏数据。
+	1. 关闭模拟器。
+1. 安装虚拟磁盘挂载工具
+	> 由于 MuMu 模拟器的分区格式在 Ext2Fsd 内识别为 Ext4+ ，此开源软件功能不足无法挂载，所以建议直接用 Linux 原版来读取。虚拟磁盘使用的是 VDI 格式，Windows 无法直接挂载，所以也不能使用 WSL2。  
+	> 下面是我的思路，目前还没有真正实行。
+	1. 安装 VirtualBox 虚拟机软件，并建立一个 Linux 虚拟机。
+	1. 将 MuMu 模拟器的虚拟磁盘挂载为此虚拟机磁盘。
+	1. 在虚拟机内使用 root 权限对模拟器分区开启 samba 协议，到真实系统里用 FastCopy 复制。
 </details>
 
 <details>
@@ -64,4 +108,4 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 1. 可 root 手机使用 Magis Hide 直接进入游戏更新数据，使用 [**MiXplorer**](https://mixplorer.com/) 文件管理器，编辑 FTP 服务器，修改默认路径为`/data/data/`，并开启服务器。电脑上使用 **Beyond Compare** 文件夹同步功能，从 FTP 同步数据到电脑文件夹。（记得修改自定义选项为有差异的就从手机覆盖本地）
 1. 可 root 手机模拟器在没有 root 的情况下进入游戏更新数据，启用 root 后使用 **ES文件管理器** 复制数据到电脑共享文件夹。
 1. 夜神(Nox)安卓模拟器在没有 root 的情况下进入游戏更新数据，启用 root 后使用 **FolderSync** 同步数据到共享数据文件夹。
-1. **DiskGenius(PartitionGuru)专业版** 读取夜神安卓模拟器虚拟磁盘文件(vmdk)并提取。
+1. **DiskGenius(PartitionGuru)专业版** 读取夜神安卓模拟器虚拟磁盘文件(vmdk)、MuMu安卓模拟器虚拟磁盘文件(vdi)并提取，逍遥模拟器的vmdk打不开。
