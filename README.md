@@ -104,6 +104,29 @@ Tested Android simulator which can run the P&D Japanese version, there are the f
 	1. 提交更新的数据。
 </details>
 
+<details>
+<summary>Root 安卓设备 | Rooted Android Device</summary>
+对备用提取方法 1 的扩展，实际上 MuMu 模拟器我就是这样操作的。
+SFTP 由于权限问题，无法访问 mon2 文件夹内容，目前只研究出来用 FTP。
+
+1. Root 该安卓设备
+1. 更新游戏数据
+	1. 在安卓设备里安装[智龙迷城](https://play.google.com/store/apps/details?id=jp.gungho.pad)。
+	1. 对智龙迷城隐藏 root，不然无法运行。MuMu 浏览器似乎是自动隐藏 root。
+	1. 运行智龙迷城，并下载最新游戏数据。
+1. 安装支持 root 的 FTP 工具
+	1. 安装 [MiXplorer](https://xdaforums.com/t/app-2-3-mixplorer-v6-x-released-fully-featured-file-manager.1523691/)。
+	1. 打开 菜单 - 设置 - 语言 - 添加中文方便操作。
+	1. 打开 菜单 - 设置 - 高级 - Root 权限。
+	1. 打开 菜单 - 服务器 - FTP 服务器，如果使用的模拟器，需要切换为桥接模式以便对真实系统暴露 IP。
+	1. 在 FTP 服务器设置里新建一个`root`用户，分配路径为根目录 `\`，为了安全勾上“只读模式”。
+1. 使用 FTP 进行同步
+	1. 先用 FTP 软件测试，连接设备 IP 比如`192.168.x.x`，端口`2121`，账号密码时刚才新建的`root`。
+	1. 如果成功连上了，可以访问`/data/data/jp.gungho.pad/files/mon2`了，就可以运行一键同步脚本了。
+	1. 安装 [WinScp](https://winscp.net)，将`config_default.bat`复制为`config.bat`，并修改内部变量。
+	1. 运行`Sync From Android Device.bat`做同步。
+</details>
+
 ### 备用提取方法
 1. 可 root 手机使用 Magis Hide 直接进入游戏更新数据，使用 [**MiXplorer**](https://mixplorer.com/) 文件管理器，编辑 FTP 服务器，修改默认路径为`/data/data/`，并开启服务器。电脑上使用 **Beyond Compare** 文件夹同步功能，从 FTP 同步数据到电脑文件夹。（记得修改自定义选项为有差异的就从手机覆盖本地）
 1. 可 root 手机模拟器在没有 root 的情况下进入游戏更新数据，启用 root 后使用 **ES文件管理器** 复制数据到电脑共享文件夹。
