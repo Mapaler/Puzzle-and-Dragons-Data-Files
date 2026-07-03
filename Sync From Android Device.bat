@@ -5,25 +5,25 @@ setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
 :: ===== 检查配置文件是否存在，不存在则从默认模板复制 =====
-if not exist config.bat (
-    echo 未找到 config.bat，正在从 config_default.bat 复制...
-    copy config_default.bat config.bat
-    echo 请编辑 config.bat，填写设备 IP 等参数后重新运行本脚本。
+if not exist config_ftp.bat (
+    echo 未找到 config.bat，正在从 config_ftp_default.bat 复制...
+    copy config_ftp_default.bat config_ftp.bat
+    echo 请编辑 config_ftp.bat，填写设备 IP 等参数后重新运行本脚本。
     pause
     exit /b 1
 )
 
 :: ===== 加载实际配置 =====
-call config.bat
+call config_ftp.bat
 if errorlevel 1 (
-    echo 错误：无法加载 config.bat，请检查文件格式。
+    echo 错误：无法加载 config_ftp.bat，请检查文件格式。
     pause
     exit /b 1
 )
 
 :: ===== 检查必要变量 =====
 if "%DEVICE_IP%"=="" (
-    echo 错误：DEVICE_IP 未在 config.bat 中设置。
+    echo 错误：DEVICE_IP 未在 config_ftp.bat 中设置。
     pause
     exit /b 1
 )
