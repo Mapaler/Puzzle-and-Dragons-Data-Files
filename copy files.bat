@@ -1,34 +1,37 @@
 @echo off
-if not exist variables.txt copy variables_default.txt variables.txt
-:0
-for /f "skip=1 delims=" %%a in (variables.txt) do (
-set mountpath=%%~a
-goto :1
+setlocal enabledelayedexpansion
+
+cd /d "%~dp0"
+
+if not exist config_mount.bat (
+    echo 未找到 config_mount.bat，请先运行 mount driver.bat 生成配置。
+    pause
+    exit /b 1
 )
-:1
-for /f "skip=3 delims=" %%a in (variables.txt) do (
-set vmdkpath=%%~a
-goto :2
+
+call config_mount.bat
+if errorlevel 1 (
+    echo 错误：无法加载 config_mount.bat。
+    pause
+    exit /b 1
 )
-:2
-for /f "skip=5 delims=" %%a in (variables.txt) do (
-set partitionN=%%~a
-goto :3
+
+:: 检查必要变量
+if not exist "%FASTCOPY_PATH%" (
+    echo 错误：FASTCOPY_PATH 指定的文件不存在。
+    pause
+    exit /b 1
 )
-:3
-for /f "skip=7 delims=" %%a in (variables.txt) do (
-set driveletter=%%~a
-goto :4
+if "%MOUNT_POINT_PATH%"=="" (
+    echo 错误：MOUNT_POINT_PATH 未设置。
+    pause
+    exit /b 1
 )
-:4
-for /f "skip=9 delims=" %%a in (variables.txt) do (
-set fastcopypath=%%~a
-goto :5
-)
-:5
-echo 正在复制文件/Coping Files
-title 正在复制文件/Coping Files
-"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.pad\files\mon2 /to=.\
-"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padEN\files\mon2\cards_*.bc %driveletter%\data\jp.gungho.padEN\files\mon2\padv*.wav /to=.\cards_EN
-"%fastcopypath%" /cmd=diff /open_window /auto_close %driveletter%\data\jp.gungho.padKO\files\mon2\cards_*.bc %driveletter%\data\jp.gungho.padKO\files\mon2\padv*.wav /to=.\cards_KO
-echo 文件复制完成/Files copy complete
+
+echo 正在复制文件...
+title 正在复制文件
+"%FASTCOPYPATH%" /cmd=diff /open_window /auto_close %MOUNT_POINT_PATH%\data\jp.gungho.pad\files\mon2 /to=.\
+"%FASTCOPYPATH%" /cmd=diff /open_window /auto_close %MOUNT_POINT_PATH%\data\jp.gungho.padEN\files\mon2\cards_*.bc %MOUNT_POINT_PATH%\data\jp.gungho.padEN\files\mon2\padv*.wav /to=.\cards_EN
+"%FASTCOPYPATH%" /cmd=diff /open_window /auto_close %MOUNT_POINT_PATH%\data\jp.gungho.padKO\files\mon2\cards_*.bc %MOUNT_POINT_PATH%\data\jp.gungho.padKO\files\mon2\padv*.wav /to=.\cards_KO
+echo 文件复制完成
+pause

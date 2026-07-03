@@ -1,28 +1,42 @@
 @echo off
-if not exist variables.txt copy variables_default.txt variables.txt
-:0
-for /f "skip=1 delims=" %%a in (variables.txt) do (
-set mountpath=%%~a
-goto :1
+setlocal enabledelayedexpansion
+
+cd /d "%~dp0"
+
+if not exist config_mount.bat (
+    echo 未找到 config_mount.bat，请先运行 mount driver.bat 生成配置。
+    pause
+    exit /b 1
 )
-:1
-for /f "skip=3 delims=" %%a in (variables.txt) do (
-set vmdkpath=%%~a
-goto :2
+
+call config_mount.bat
+if errorlevel 1 (
+    echo 错误：无法加载 config_mount.bat。
+    pause
+    exit /b 1
 )
-:2
-for /f "skip=5 delims=" %%a in (variables.txt) do (
-set partitionN=%%~a
-goto :3
+
+:: 检查必要变量
+if not exist "%VMWARE_MOUNT_PATH%" (
+    echo 错误：VMWARE_MOUNT_PATH 指定的文件不存在。
+    pause
+    exit /b 1
 )
-:3
-for /f "skip=7 delims=" %%a in (variables.txt) do (
-set driveletter=%%~a
-goto :4
+if "%MOUNT_POINT_PATH%"=="" (
+    echo 错误：MOUNT_POINT_PATH 未设置。
+    pause
+    exit /b 1
 )
-:4
-echo 正在卸载虚拟分区/Deleting Virtual Disk mapping
-title 正在卸载虚拟分区/Deleting Virtual Disk mapping
-"%mountpath%" /d %driveletter% /f
-echo 虚拟分区卸载完成/Virtual Disk mapping delete complete
+
+echo 正在卸载虚拟分区 %MOUNT_POINT_PATH% ...
+title 正在卸载虚拟分区
+"%VMWARE_MOUNT_PATH%" /d %MOUNT_POINT_PATH% /f
+
+if errorlevel 1 (
+    echo 卸载失败，可能该盘符未挂载或已被占用。
+    pause
+    exit /b 1
+)
+
+echo 虚拟分区卸载完成。
 pause
